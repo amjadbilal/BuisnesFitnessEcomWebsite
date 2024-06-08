@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+     <link rel="stylesheet" href="./assets/css/productDetails.css">
+     <link rel="stylesheet" href="./assets/css/navbar.css">
+     <link rel="stylesheet" href="/assets/css/form.css">
+      <link rel="stylesheet" href="/assets/css/reserveForm.css">
+      <!-- <link rel="stylesheet" href="/assets/css/reserveForm.css"> -->
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h2>BrandNAme</h2>
+            <a href="/">Home</a>
+            <a href="./products.html">Products</a>
+        </div>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search" />
+        </div>
+    </nav>
+     
+    <!-- Reserv form  -->
+<div id="reserveFormPopover" class="popover" style="display: none;">
+    <h2>Reserve your Equipement</h2>
+    <form id="reserve-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <button type="submit">Reserve</button>
+    </form>
+</div>
+
+<!-- Success Window -->
+<div id="successMessage" class="success-window" style="display: none;">Reservation Successful!</div>
+<div class='footer'>
+    <section class="footer-text">
+        <h6>Get In Touch</h6>
+        <p class="para2">
+            The quick fox jump over the lazy dog
+        </p>
+    </section>
+    </div>
+<script src="/assets/js/form.js"></script>
+</body>
+</html>

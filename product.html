@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <!-- icon link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/products.css">
+    <link rel="stylesheet" href="/assets/css/form.css">
+    <link rel="stylesheet" href="/assets/css/detailPage.css">
+    <style>
+        /* Additional styling for popover */
+        .popover {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            z-index: 1000;
+        }
+        .success-window {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h2>Brand Name</h2>
+            <a href="/">Home</a>
+            <a href="./products.html">Products</a>
+        </div>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search" />
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    
+    <div id="reserveFormPopover" class="popover" style="display: none;">
+        <h2>Reserve your Equipement</h2>
+        <form id="reserve-form" style="display: flex;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Reserve</button>
+        </form>
+    </div>
+    
+    <!-- Success Window -->
+    <div id="successMessage" class="success-window" style="display: none;">Reservation Successful!</div>
+    
+    <div class="products" id="products"></div>
+
+    <script>
+        function displayProductDetails() {
+            const product = JSON.parse(localStorage.getItem('selectedProduct'));
+            if (product) {
+                const detailContainer = document.getElementById('products');
+                detailContainer.innerHTML = `
+                    <div class="detailPage">
+                        <img src="${product.image}" alt="EquipementImg" />
+                        <div class="products">
+                    <div class="upper">
+                        <h6>${product.name}</h6>
+                        <button id="reserve" class="reserve">Reserve</button>
+                    </div>
+                    <div class="price">
+                        <del>$${product.oldPrice}</del>
+                        <strong>$${product.newPrice}</strong>
+                    </div>
+                    <div class="rating">
+                        <div class="starRating">
+                            <span class="fa fa-star checked"></span>
+                            <small>${product.rating}</small>
+                        </div>
+
+                        <p>121&nbsp; &nbsp;  
+                            Sales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp </p>
+                            <i class="fa fa-download"></i>
+                    </div>
+                    <div class="description">${product.description}</div>
+                </div>
+            </div>
+            <div class="common">
+                <li>the quick fox jumps over lazy dog</li>
+                <li>the quick fox jumps over lazy dog</li>
+                <li>the quick fox jumps over lazy dog</li>
+                <li>the quick fox jumps over lazy dog</li>
+                <li>the quick fox jumps over lazy dog</li>
+                    </div>
+                     
+                `;
+                setUpReserveButton();
+            } else {
+                document.getElementById('products').innerText = 'No product details available.';
+            }
+        }
+
+        function setUpReserveButton() {
+            const reserveButton = document.getElementById("reserve");
+            const reserveFormPopover = document.getElementById("reserveFormPopover");
+            const reserveForm = document.getElementById("reserve-form");
+            const successMessage = document.getElementById("successMessage");
+
+            reserveButton.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevent event from bubbling up
+                // Show the popover
+                reserveFormPopover.style.display = "block";
+            });
+
+            reserveForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default form submission behavior
+
+                // Simulate form submission (replace this with actual submission logic)
+                setTimeout(function () {
+                    // Hide the popover and show the success message
+                    reserveFormPopover.style.display = "none";
+                    successMessage.style.display = "block";
+
+                    // Reset form fields if needed
+                    reserveForm.reset();
+                }, 1000); // Change 1000 to the desired delay in milliseconds
+            });
+
+            // Hide the popover when clicking outside of it
+            document.addEventListener("click", function (event) {
+                if (!reserveFormPopover.contains(event.target) && !reserveButton.contains(event.target)) {
+                    reserveFormPopover.style.display = "none";
+                }
+            });
+        }
+
+        window.onload = displayProductDetails;
+    </script>
+
+    <script src="/assets/js/form.js"></script>
+    <div class='footer'>
+        <section class="footer-text">
+            <h6>Get In Touch</h6>
+            <p class="para2">
+                The quick fox jump over the lazy dog
+            </p>
+        </section>
+        </div>
+</body>
+</html>

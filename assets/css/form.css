@@ -1,0 +1,77 @@
+.popover {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 999;
+}
+
+.success-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 999;
+}
+
+
+
+#reserveFormPopover {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    justify-content: center;
+}
+#reserveFormPopover h2{
+    text-align: center;
+    color: #211452;
+}
+#reserve-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 35vw;
+    justify-content: center;
+    gap: 10px;
+}
+
+label,
+input {
+    display: block;
+    padding: 6px;
+}
+
+input,
+textarea {
+    min-width: 10vw;
+    padding: 6px;
+    border: 1.5px solid rgb(10, 10, 104);
+    border-radius: 10px;
+
+}
+
+form button {
+    padding: 8px;
+    text-align: center;
+    max-width: fit-content;
+    width: 10vw;
+    text-transform: capitalize;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 20px;
+    background: #211452;
+    transition: 1s background;
+}
+
+button:hover {
+
+    color: #ffffff;
+    background: rgb(25, 95, 97);
+}

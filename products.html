@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/products.css">
+ 
+</head>
+<body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h2>BrandNAme</h2>
+            <a href="/">Home</a>
+            <a href="./products.html">Products</a>
+        </div>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search" />
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    
+    <h2 style="text-align: center;font-size: 30px;font-weight: 600; margin-top: 35px; color: rgb(22, 22, 92);">Shop Product</h2>
+
+
+    <div id="products"></div>
+
+    <script>
+        // JavaScript to dynamically create and insert the cards
+        function createCard(product) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.id = `productID-${product.id}`;
+            card.innerHTML = `
+                <img src="${product.image}" alt="EquipementImg" />
+                <div class="card-details">
+                    <h5>${product.name}</h5>
+                    <div class="rating">
+                        <div class="starRating">
+                              <span class="fa fa-star checked"></span>
+                                
+                            <small>${product.rating}</small>
+                        </div>
+                        <button>
+                            Sales
+                            &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp </p>
+                            <i class="fa fa-download"></i>
+                            </button>
+                    </div>
+                    <div class="description">${product.description}</div>
+                    <div class="price">
+                        <del>$${product.oldPrice}</del>
+                        <strong>$${product.newPrice}</strong>
+                    </div>
+                    <div class="functionBtn">
+                        <button class="view-btn" style="color:rgb(7, 7, 68);background:none; border:1px solid blue;">View</button>
+                        
+                        <button id="reserve" class="reserve">${product.reserve}</button>
+                    </div>
+                </div>
+            `;
+            card.querySelector('.view-btn').addEventListener('click', () => viewProduct(product));
+            // console.log(a);
+            card.querySelector('img').addEventListener('click', () => viewProduct(product));
+            return card;
+        }
+
+        function viewProduct(product) {
+            localStorage.setItem('selectedProduct', JSON.stringify(product));
+            window.location.href = 'product.html';
+        }
+
+        // Generate 20 dummy products
+        const products = Array.from({ length: 20 }, (_, i) => ({
+            id: i + 1,
+            image: 'assets/images/prod.jpg',
+            name: `Product Name ${i + 1}`,
+            rating: (Math.random() * (5 - 4) + 4).toFixed(1),
+            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, iusto.',
+            oldPrice: (Math.random() * (20 - 10) + 10).toFixed(2),
+            newPrice: (Math.random() * (10 - 5) + 5).toFixed(2),
+            reserve:"reserve"
+        }));
+
+        // Insert the cards into the container
+        const cardContainer = document.getElementById('products');
+        products.forEach(product => {
+            const cardElement = createCard(product);
+            cardContainer.appendChild(cardElement);
+        });
+    </script>
+    
+
+
+
+
+</body>
+</html>

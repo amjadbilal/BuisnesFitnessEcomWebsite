@@ -1,0 +1,56 @@
+.popover {
+    position: absolute;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 999;
+    }
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    label{
+        display: block;
+
+    }
+    input{
+        border: 1px solid black;
+        padding: 6px;
+        border-radius: 10px;
+        
+        }
+        .success-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 999;
+}
+form button{
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: blanchedalmond;
+    margin: 5px;
+}
+form button:hover{
+    padding: 5px;
+    background: rgb(32, 13, 83);
+    margin: 5px;
+    color: white;
+}
+#successMessage{
+    color: green;
+    font-size: larger;
+    border:1px solid transparent ;
+    border-radius: 20px;
+}
