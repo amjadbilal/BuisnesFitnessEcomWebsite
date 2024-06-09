@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const reserveFormPopover = document.getElementById("reserveFormPopover");
     const reserveForm = document.getElementById("reserve-form");
     const successMessage = document.getElementById("successMessage");
-    // const closeSuccessMessageButton = successMessage.querySelector(".close-button");
+    const closeSuccessMessageButton = successMessage.querySelector(".close-button");
 
+    
     // Check if elements are correctly selected
-    console.log(reserveFormPopover);
-    console.log(reserveForm);
-    console.log(successMessage);
+    // console.log(reserveFormPopover);
+    // console.log(reserveForm);
+    // console.log(successMessage);
     // console.log(closeSuccessMessageButton);
 
     if (reserveButton && reserveFormPopover && reserveForm && successMessage && closeSuccessMessageButton) {
@@ -49,9 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Close success message
         closeSuccessMessageButton.addEventListener("click", function () {
+            console.log("Close button:", closeSuccessMessageButton);
             successMessage.style.display = "none";
+
         });
-    } else {
-        console.error("One or more elements could not be found in the DOM.");
-    }
+    } 
 });

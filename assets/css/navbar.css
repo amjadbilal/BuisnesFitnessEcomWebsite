@@ -8,7 +8,7 @@ margin: 0;padding: 0;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(to right, rgba(25, 25, 99, 0.884),rgb(36, 36, 129),rgba(50, 46, 104, 0.993));
+    background: linear-gradient(to right, rgba(25, 25, 99, 0.884),rgb(36, 36, 129),rgba(59, 53, 137, 0.993));
     color: white;
   }
   
@@ -54,14 +54,10 @@ margin: 0;padding: 0;
   padding: 6px;
   border: 1px solid transparent;
   border-radius: 10px;
-  background: #cabdbd;
-  transition: 1s background;
+  cursor: pointer;
+  /* transition: 1s background; */
 }
-.handleBtn button:hover{
-color: #cabdbd;
-background: blue;
-  
-}
+ 
 
 .content {
   max-width: 600px;

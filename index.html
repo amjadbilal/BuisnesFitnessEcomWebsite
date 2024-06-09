@@ -42,7 +42,7 @@
                 <div class="imgSection">
 
                     <img src="./assets/images/advertise.png" alt="Product 1">
-                    </div>
+                </div>
             </div>
             <div class="slide">
                 <div class="slide-content">
@@ -52,10 +52,10 @@
                         <a href="/products.html">Explore Products</a>
                     </button>
                 </div>
-                
 
-                    <img src="./assets/images/advertise.png" alt="Product 2">
-              
+
+                <img src="./assets/images/advertise.png" alt="Product 2">
+
             </div>
             <div class="slide">
                 <div class="slide-content">
@@ -77,11 +77,11 @@
     <!-- main  -->
     <!-- add some products here -->
 
-    <h2 style="text-align: center;font-size: 30px;font-weight: 600; margin-top: 35px; color: rgb(22, 22, 92);">Shop Product</h2>
+    <h2 style="text-align: center;font-size: 30px;font-weight: 600; margin-top: 35px; color: rgb(22, 22, 92);">Shop
+        Product</h2>
 
 
     <div id="products"></div>
-
     <script>
         // JavaScript to dynamically create and insert the cards
         function createCard(product) {
@@ -95,11 +95,11 @@
                     <div class="rating">
                         <div class="starRating">
                            <span class="fa fa-star checked"></span>
-                           
+
                             <small>${product.rating}</small>
                         </div>
                         <button>
-                            Sales 
+                            Sales
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
                             <i class="fa fa-download"></i>
                             </button>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="functionBtn">
                         <button class="view-btn" style="color:rgb(7, 7, 68);background:none; border:1px solid blue;">View</button>
-                        
+
                         <button id="reserve" class="reserve">${product.reserve}</button>
                     </div>
                 </div>
@@ -122,64 +122,89 @@
             return card;
         }
 
+    
         function viewProduct(product) {
-            localStorage.setItem('selectedProduct', JSON.stringify(product));
-            window.location.href = 'product.html';
-        }
+        localStorage.setItem('selectedProduct', JSON.stringify(product));
+        window.location.href = 'product.html';
+    }
 
-        // Generate 20 dummy products
-        const products = Array.from({ length: 20 }, (_, i) => ({
-            id: i + 1,
-            image: 'assets/images/prod.jpg',
-            name: `Product Name ${i + 1}`,
-            rating: (Math.random() * (5 - 4) + 4).toFixed(1),
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, iusto.',
-            oldPrice: (Math.random() * (20 - 10) + 10).toFixed(2),
-            newPrice: (Math.random() * (10 - 5) + 5).toFixed(2),
-            reserve:"reserve"
-        }));
+    // Generate 20 dummy products
+    const products = Array.from({ length: 20 }, (_, i) => ({
+        id: i + 1,
+        image: 'assets/images/prod.jpg',
+        name: `Product Name ${i + 1}`,
+        rating: (Math.random() * (5 - 4) + 4).toFixed(1),
+        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, iusto.',
+        oldPrice: (Math.random() * (20 - 10) + 10).toFixed(2),
+        newPrice: (Math.random() * (10 - 5) + 5).toFixed(2),
+        reserve: "reserve"
+    }));
 
-        // Insert the cards into the container
+    // Function to render cards
+    function renderCards(startIndex, endIndex) {
         const cardContainer = document.getElementById('products');
-        products.forEach(product => {
+        for (let i = startIndex; i < endIndex; i++) {
+            const product = products[i];
             const cardElement = createCard(product);
             cardContainer.appendChild(cardElement);
-        });
-    </script>
-    <!-- <button  >Show More</button> -->
-    <section class="handleBtn">
+        }
+    }
 
-        <button id="toggleButton">Show More</button>
-    </section>
+    // Initial rendering of first 6 cards
+    renderCards(0, 6);
 
+    const showMoreButton = document.getElementById('toggleButton');
+    console.log(showMoreButton);
+    let startIndex = 6;
+    let endIndex = Math.min(startIndex + 6, products.length);
+
+    showMoreButton.addEventListener('click', function () {
+        // Render next batch of cards
+        renderCards(startIndex, endIndex);
+
+        // Update indices for next batch
+        startIndex = endIndex;
+        endIndex = Math.min(startIndex + 6, products.length);
+
+        // Hide "Show More" button if no more products to show
+        if (startIndex >= products.length) {
+            showMoreButton.style.display = 'none';
+        }
+    });
+</script>
+
+<!-- show more button -->
+<section class="handleBtn">
+    <button id="toggleButton">Show More</button>
+</section>
     <!-- show more buttin -->
 
     <!-- Reservation form -->
-     <!-- Reserve Form Popover -->
-<!-- Reserve Form Popover -->
-<div id="reserveFormPopover" class="popover" style="display: none;">
-    <form id="reserve-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
-        <button type="submit">Reserve</button>
-    </form>
-</div>
+    <!-- Reserve Form Popover -->
+    <!-- Reserve Form Popover -->
+    <div id="reserveFormPopover" class="popover" style="display: none;">
+        <h2>Reserve your Equipement</h2>
+        <form id="reserve-form" style="display: flex;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Reserve</button>
+        </form>
+    </div>
+    <!-- Success Window -->
+    <!-- Success Window -->
+    <div id="successMessage" class="success-window" style="display: none; background-color: white; color: black;">
+        <img src="/assets/images/success.png" alt="SuccessIcon" class="successIcon">
+        <p>Reservation Successful!</p>
+        <button class="close-button">Close</button>
+    </div>
 
-<!-- Success Window -->
-<!-- Success Window -->
-<div id="successMessage" class="success-window" style="display: none;">
-    <img src="/assets/images/success.png" alt="SuccessIcon" class="successIcon">
-    <p>Reservation Successful!</p>
-   <p> <button class="close-button">Close</button></p>
-</div>
 
-
-<!-- Ensure this script tag is at the end of the body -->
-<!-- footer  -->
+    <!-- Ensure this script tag is at the end of the body -->
+    <!-- footer  -->
     <div class='footer'>
         <section class="footer-text">
             <h6>Get In Touch</h6>
@@ -187,11 +212,19 @@
                 The quick fox jump over the lazy dog
             </p>
         </section>
-        </div>
-        <script src="/assets/js/ShomeMore.js"></script>
-        <script src="/assets/js/form.js"></script>
-        <script src="/assets/js/productDetail.js"></script>
+    </div>
+    <script src="/assets/js/ShomeMore.js"></script>
+    <script src="/assets/js/form.js"></script>
+    <script src="/assets/js/productDetail.js"></script>
 </body>
+<script>
+    const successMessage = document.getElementById("successMessage");
+    const closeSuccessMessageButton = successMessage.querySelector(".close-button");
+    closeSuccessMessageButton.addEventListener("click", function () {
+        console.log("Close button:", closeSuccessMessageButton);
+        successMessage.style.display = "none";
 
+    });
+</script>
 
 </html>

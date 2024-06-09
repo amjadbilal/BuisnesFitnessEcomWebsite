@@ -47,6 +47,7 @@ form button {
     max-width: fit-content;
     width: 10vw;
     text-transform: capitalize;
+    cursor: pointer;
     color: white;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -54,21 +55,18 @@ form button {
     background: #211452;
     transition: 1s background;
 }
-
-button:hover {
-    color: #ffffff;
-    background: rgb(25, 95, 97);
-}
+ 
 
 .success-window {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
     justify-content: center;
     width: 600px;
     height: 341px;
-    background-color: #dff0d8;
-    color: #3c763d;
+    /* background-color: #dff0d8; */
+    color:black;
     border: 1px solid #d6e9c6;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -87,13 +85,12 @@ button:hover {
 .close-button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #3c763d;
-    color: white;
-    border: none;
+    color: black;
+    border:1px solid gray;
+    background: white;
     cursor: pointer;
     border-radius: 5px;
+
 }
 
-.close-button:hover {
-    background-color: #1c157e;
-}
+ 

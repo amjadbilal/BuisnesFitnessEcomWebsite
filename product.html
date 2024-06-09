@@ -68,7 +68,12 @@
     </div>
     
     <!-- Success Window -->
-    <div id="successMessage" class="success-window" style="display: none;">Reservation Successful!</div>
+    <div id="successMessage" class="success-window" style="display: none;">
+        <img src="/assets/images/success.png" alt="SuccessIcon" class="successIcon">
+        <p>Reservation Successful!</p>
+         <button class="close-button">Close</button> 
+    </div>
+    
     
     <div class="products" id="products"></div>
 
@@ -154,6 +159,30 @@
         window.onload = displayProductDetails;
     </script>
 
+
+
+
+
+
+    <!-- best seller -->
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="/assets/js/form.js"></script>
     <div class='footer'>
         <section class="footer-text">
@@ -163,5 +192,36 @@
             </p>
         </section>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+               const successMessage = document.getElementById("successMessage");
+               const closeSuccessMessageButton = successMessage.querySelector(".close-button");
+             closeSuccessMessageButton.addEventListener("click", function () {
+            console.log("Close button:", closeSuccessMessageButton);
+            successMessage.style.display = "none";
+
+        });
+
+        // console.error("close button error.");
+
+        </script>
 </body>
 </html>
