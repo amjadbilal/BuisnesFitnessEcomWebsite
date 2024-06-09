@@ -6,32 +6,20 @@
     z-index: 999;
 }
 
-.success-window {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f0f0f0;
-    padding: 20px;
-    border: 1px solid #ccc;
-    z-index: 999;
-}
-
-
-
 #reserveFormPopover {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     border: 1px solid transparent;
     border-radius: 10px;
-
     justify-content: center;
 }
-#reserveFormPopover h2{
+
+#reserveFormPopover h2 {
     text-align: center;
     color: #211452;
 }
+
 #reserve-form {
     display: flex;
     flex-direction: column;
@@ -41,19 +29,16 @@
     gap: 10px;
 }
 
-label,
-input {
+label, input {
     display: block;
     padding: 6px;
 }
 
-input,
-textarea {
+input, textarea {
     min-width: 10vw;
     padding: 6px;
     border: 1.5px solid rgb(10, 10, 104);
     border-radius: 10px;
-
 }
 
 form button {
@@ -71,7 +56,44 @@ form button {
 }
 
 button:hover {
-
     color: #ffffff;
     background: rgb(25, 95, 97);
+}
+
+.success-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 341px;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    text-align: center;
+}
+
+.successIcon {
+    width: 100px; /* Adjust the size of the icon as needed */
+    margin-bottom: 20px;
+}
+
+.close-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3c763d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-button:hover {
+    background-color: #1c157e;
 }
