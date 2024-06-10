@@ -67,3 +67,44 @@ body {
 .features li {
     margin: 10px 0;
 }
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .product-detail {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-section,
+    .details-section {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .details-section {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .details-section h2 {
+        font-size: 20px;
+    }
+
+    .details-section .price del {
+        font-size: 14px;
+    }
+
+    .details-section .price strong {
+        font-size: 20px;
+    }
+
+    .details-section button {
+        padding: 8px 16px;
+    }
+
+    .features li {
+        font-size: 14px;
+    }
+}

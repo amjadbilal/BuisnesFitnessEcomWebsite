@@ -54,3 +54,17 @@ form button:hover{
     border:1px solid transparent ;
     border-radius: 20px;
 }
+@media screen and (max-width: 768px) {
+    .popover {
+        padding: 10px;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    form button {
+        padding: 3px;
+        margin: 3px;
+    }
+}

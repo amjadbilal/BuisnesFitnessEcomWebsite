@@ -78,7 +78,7 @@ form button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1001;
+    /* z-index: 1001; */
     text-align: center;
 }
 
@@ -103,3 +103,107 @@ form button {
 
 }
  
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+   
+#reserveFormPopover {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    
+    justify-content: center;
+}
+
+#reserveFormPopover h2 {
+    text-align: center;
+    color: #211452;
+}
+
+#reserve-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+label, input {
+    display: block;
+    padding: 6px;
+}
+
+input, textarea {
+    min-width: 10vw;
+    padding: 10px;
+    background: #f2f1f1;
+    border: 1px solid rgb(149, 149, 153);
+    border-radius: 3px;
+    border-color: #ccc;
+}
+
+form button {
+    padding: 8px;
+    text-align: center;
+    max-width: fit-content;
+    text-transform: capitalize;
+    min-width: fit-content;
+    cursor: pointer;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 20px;
+    background: rgb(11, 11, 67);
+    transition: 1s background;
+}
+ 
+
+.success-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    width: 600px;
+    height: 341px;
+    /* background-color: #dff0d8; */
+    color:black;
+    border: 1px solid #d6e9c6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    text-align: center;
+}
+
+.successIcon {
+    width: 100px; /* Adjust the size of the icon as needed */
+    margin-bottom: 20px;
+}
+
+.close-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: black;
+    border:1px solid gray;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.formBtn{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+}
+
+@media screen and (max-width: 480px) {
+    #reserveFormPopover {
+        width: 90%; /* Adjusted width for smaller screens */
+    }
+}

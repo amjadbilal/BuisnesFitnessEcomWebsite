@@ -97,3 +97,66 @@ body {
 .prev:hover, .next:hover {
     background-color:wheat;
 }
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .slide-content {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+        
+    }
+
+    .slide {
+        display: flex;
+        justify-content: center; /* Align items to the left and right */
+        width: 100%;
+        align-items: center;
+        flex-wrap: wrap; /* Prevent items from wrapping */
+        box-sizing: border-box;
+        padding: 20px; /* Add padding for better spacing */
+    }
+    
+    .slide-content {
+        /* max-width: 50%;  */
+        margin-left: 30px;
+        width: 280px;
+        padding: 20px; }
+    
+    .slide-content h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    
+    }
+    
+    .slide-content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .slide-content button {
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        background: #112D73;
+        border-radius: 10px;
+        border: 1px solid wheat;
+    }
+     
+    .slide-content button a{
+        text-decoration: none;
+        color: white;
+    }
+    .slide-content button a:hover{
+        text-decoration: none;
+        color: rgb(186, 186, 199);
+        background: none;
+    }
+    
+    .slide img {
+        height: auto;
+        border-radius: 10px;
+    }
+    .slide img {
+        width: 100%;
+    }
+}

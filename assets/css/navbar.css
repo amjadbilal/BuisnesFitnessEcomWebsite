@@ -6,9 +6,10 @@ margin: 0;padding: 0;
 .navbar{
     display: flex;
     justify-content: space-between;
+    height: 15vh;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(to right, rgba(25, 25, 99, 0.884),rgb(36, 36, 129),rgba(59, 53, 137, 0.993));
+    background: linear-gradient(to right, #112D73, #112D73,rgba(59, 53, 137, 0.993));
     color: white;
   }
   
@@ -32,11 +33,32 @@ margin: 0;padding: 0;
   }
   
   .navbar-right input[type="text"] {
-    padding: 8px;
+    padding-left: 35px;
     width: 25vw;
+    font-size: 18px;
     border: 1px solid gray;
     border-radius: 20px;
   }
+
+  .navbar-right {
+    position: relative;
+
+}
+
+.navbar-right input {
+    /* padding: 10px; */
+
+    border: none;
+    border-radius: 5px;
+}
+
+.navbar-right .fa-search {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #999;
+}
   
 
 /* show more btn css */
@@ -75,13 +97,14 @@ margin: 0;padding: 0;
 
   /* footer cs */
   .footer{
-    background: rgb(33, 33, 121);
-    color: wheat;
+    background: linear-gradient(to right, #112D73, #112D73,rgba(59, 53, 137, 0.993));
+    color: white;
     margin-top: auto;
     position: relative;
-    height: 15vh;
+    height: 20vh;
 }
 .footer-text{
+  padding: 14px;
     margin-left: 40px;
     display: flex;
     flex-wrap: wrap ;
@@ -97,4 +120,135 @@ h6{
 }
 
 
+ /* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .navbar{
+    display: flex;
+    justify-content: center;
+    height: 15vh;
+    overflow-x: hidden;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #112D73, #112D73,rgba(59, 53, 137, 0.993));
+    color: white;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-left h2 {
+    margin-right: 20px;
+  }
+  
+  .navbar-left a {
+    margin-right: 8px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar-left a:hover {
+    text-decoration: underline;
+  }
+  
+  .navbar-right input[type="text"] {
+    padding-left: 35px;
+    width: 25vw;
+    font-size: 18px;
+    border: 1px solid gray;
+    border-radius: 20px;
+  }
+
+  .navbar-right {
+    position: relative;
+
+}
+
+.navbar-right input {
+    /* padding: 10px; */
+
+    border: none;
+    border-radius: 5px;
+}
+
+.navbar-right .fa-search {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #999;
+}
+  
+
+/* show more btn css */
+.handleBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.handleBtn button{
+  display: flex;
+  text-align: center;
+  /* margin: auto; */
+  padding: 6px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  /* transition: 1s background; */
+}
  
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.showMore{
+  display: none;
+  margin-left: 20px;
+}
+
+  /* footer cs */
+  .footer{
+    background: linear-gradient(to right, #112D73, #112D73,rgba(59, 53, 137, 0.993));
+    color: white;
+    margin-top: auto;
+    position: relative;
+    height: 20vh;
+}
+.footer-text{
+  padding: 14px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap ;
+    align-items: center;
+    width: 200px;
+
+}
+h6{
+    font-size:20px ;
+    padding: 5px;
+    font-weight: 600;
+    position: relative;
+}
+
+  .navbar-right input[type="text"] {
+      width: 30vw; /* Adjusted width for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-right input[type="text"] {
+      width: 70vw; /* Adjusted width for smaller screens */
+  }
+}
