@@ -10,7 +10,7 @@ body {
     color: white;
     margin: auto;
     overflow: hidden;
-    background: linear-gradient(to right, rgba(25, 25, 99, 0.884),rgb(36, 36, 129),rgba(59, 53, 137, 0.993));
+    background: linear-gradient(to right, #112D73, #112D73,rgba(59, 53, 137, 0.993));
 }
 
 .slider-container {
@@ -49,7 +49,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background: linear-gradient(to right, rgba(25, 25, 99, 0.884),rgb(36, 36, 129),rgba(55, 48, 147, 0.993));
+    background: #112D73;
     border-radius: 10px;
     border: 1px solid wheat;
 }

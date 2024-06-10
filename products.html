@@ -36,6 +36,7 @@
     <!-- Navbar End -->
 
     <h2 style="text-align: center;font-size: 30px;font-weight: 600; margin-top: 35px; color: rgb(22, 22, 92);">Shop Product</h2>
+ 
 
     <div id="products"></div>
 
@@ -83,10 +84,23 @@
             window.location.href = 'product.html';
         }
 
-        // Generate 15 dummy products
+        // Array of different image URLs
+        const productImages = [
+        'assets/images/img1.webp',
+        'assets/images/img2.webp',
+        'assets/images/img3.webp',
+        'assets/images/img4.webp',
+        'assets/images/img5.webp',
+        'assets/images/img6.webp',
+        'assets/images/img2.webp',
+        'assets/images/img3.webp',
+        'assets/images/img4.webp',
+        ];
+
+        // Generate 15 dummy products with different images
         const products = Array.from({ length: 15 }, (_, i) => ({
             id: i + 1,
-            image: 'assets/images/prod.jpg',
+            image: productImages[i % productImages.length],
             name: `Product Name ${i + 1}`,
             rating: (Math.random() * (5 - 4) + 4).toFixed(1),
             description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, iusto.',
@@ -101,11 +115,6 @@
             const cardElement = createCard(product);
             cardContainer.appendChild(cardElement);
         });
-
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+</script>
 </body>
 </html>
