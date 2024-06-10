@@ -62,8 +62,12 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-            <button type="submit">Reserve</button>
+            <textarea id="message" name="message" rows="4"></textarea>
+            <div class="formBtn ">
+
+                <button type="reset" id="cancel" style="background-color: white; color: black; border: 1px solid gray;">Cancel</button>
+            <button type="submit">Confirm</button>
+            </div>
         </form>
     </div>
     
@@ -86,68 +90,74 @@
                     <div class="detailPage">
                         <img src="${product.image}" alt="EquipementImg" />
                         <div class="products">
-                    <div class="upper">
-                        <h6>${product.name}</h6>
-                        <button id="reserve" class="reserve">Reserve</button>
-                    </div>
-                    <div class="price">
-                        <del>$${product.oldPrice}</del>
-                        <strong>$${product.newPrice}</strong>
-                    </div>
-                    <div class="rating">
-                        <div class="starRating">
-                            <span class="fa fa-star checked"></span>
-                            <small>${product.rating}</small>
+                            <div class="upper">
+                                <h6>${product.name}</h6>
+                                <button id="reserve" class="reserve">Reserve</button>
+                            </div>
+                            <div class="price">
+                                <del>$${product.oldPrice}</del>
+                                <strong>$${product.newPrice}</strong>
+                            </div>
+                            <div class="rating">
+                                <div class="starRating">
+                                    <span class="fa fa-star checked"></span>
+                                    <small>${product.rating}</small>
+                                </div>
+                                <p>121&nbsp; &nbsp;  
+                                    Sales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp </p>
+                                    <i class="fa fa-download"></i>
+                            </div>
+                            <div class="description">${product.description}</div>
                         </div>
-
-                        <p>121&nbsp; &nbsp;  
-                            Sales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp </p>
-                            <i class="fa fa-download"></i>
                     </div>
-                    <div class="description">${product.description}</div>
-                </div>
-            </div>
-            <div class="common">
-                <li>the quick fox jumps over lazy dog</li>
-                <li>the quick fox jumps over lazy dog</li>
-                <li>the quick fox jumps over lazy dog</li>
-                <li>the quick fox jumps over lazy dog</li>
-                <li>the quick fox jumps over lazy dog</li>
+                    <div class="common">
+                        <li>the quick fox jumps over lazy dog</li>
+                        <li>the quick fox jumps over lazy dog</li>
+                        <li>the quick fox jumps over lazy dog</li>
+                        <li>the quick fox jumps over lazy dog</li>
+                        <li>the quick fox jumps over lazy dog</li>
                     </div>
-                     
                 `;
                 setUpReserveButton();
             } else {
                 document.getElementById('products').innerText = 'No product details available.';
             }
         }
-
+    
         function setUpReserveButton() {
             const reserveButton = document.getElementById("reserve");
+            const cancelButton = document.getElementById("cancel");
+    
             const reserveFormPopover = document.getElementById("reserveFormPopover");
             const reserveForm = document.getElementById("reserve-form");
             const successMessage = document.getElementById("successMessage");
-
+    
             reserveButton.addEventListener("click", function (event) {
                 event.stopPropagation(); // Prevent event from bubbling up
                 // Show the popover
                 reserveFormPopover.style.display = "block";
             });
-
+    
+            // Attach click event to the cancel button
+            cancelButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default form submission behavior
+                reserveFormPopover.style.display = "none";
+            });
+    
             reserveForm.addEventListener("submit", function (event) {
                 event.preventDefault(); // Prevent default form submission behavior
-
+    
                 // Simulate form submission (replace this with actual submission logic)
                 setTimeout(function () {
                     // Hide the popover and show the success message
                     reserveFormPopover.style.display = "none";
                     successMessage.style.display = "block";
-
+    
                     // Reset form fields if needed
                     reserveForm.reset();
                 }, 1000); // Change 1000 to the desired delay in milliseconds
             });
-
+    
             // Hide the popover when clicking outside of it
             document.addEventListener("click", function (event) {
                 if (!reserveFormPopover.contains(event.target) && !reserveButton.contains(event.target)) {
@@ -155,9 +165,10 @@
                 }
             });
         }
-
+    
         window.onload = displayProductDetails;
     </script>
+    
 
 
 
@@ -223,5 +234,6 @@
         // console.error("close button error.");
 
         </script>
+        <script src=""></script>
 </body>
 </html>
