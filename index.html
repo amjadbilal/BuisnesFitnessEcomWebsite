@@ -1,140 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BusinessFitness Web</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <!-- css -->
-    <link rel="stylesheet" href="/assets/css/navbar.css">
-    <link rel="stylesheet" href="/assets/css/slider.css">
-    <link rel="stylesheet" href="/assets/css/form.css">
-    <link rel="stylesheet" href="./assets/css/products.css">
-</head>
-<style>
+    <link rel="stylesheet" href="/assets/css/navbar.css" />
+    <link rel="stylesheet" href="/assets/css/slider.css" />
+    <link rel="stylesheet" href="/assets/css/form.css" />
+    <link rel="stylesheet" href="./assets/css/products.css" />
+  </head>
+  <style>
     .go-top-button {
-        display: block;
-        margin: 20px auto;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: black;
-        border: 1px solid black;
-        border-radius: 20px;
-        cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: black;
+      border: 1px solid black;
+      border-radius: 20px;
+      cursor: pointer;
     }
 
     .popover {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        background-color: white;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
 
     .success-window {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        background-color: white;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        text-align: center;
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      text-align: center;
     }
 
-  
     .close-button {
-        margin-top: 10px;
-        padding: 10px 20px;
-        border: none;
-        background-color: #dde3e9;
-        color: black;
-        cursor: pointer;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #dde3e9;
+      color: black;
+      cursor: pointer;
     }
 
     .reserve {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
-</style>
-<body>
+  </style>
+  <body>
     <nav class="navbar">
-        <div class="navbar-left">
-            <h2>BrandName</h2>
-            <a href="/">Home</a>
-            <a href="./products.html">Products</a>
-        </div>
-        <div class="navbar-right">
-            <i class="fa fa-search"></i>
-            <input type="text" placeholder="Search" />
-        </div>
+      <div class="navbar-left">
+        <h2>BrandName</h2>
+        <a href="/">Home</a>
+        <a href="./products.html">Products</a>
+      </div>
+      <div class="navbar-right">
+        <i class="fa fa-search"></i>
+        <input id="searchInput" type="text" placeholder="Search" />
+      </div>
     </nav>
 
     <!-- slider section -->
     <div class="slider">
-        <div class="slider-container">
-            <div class="slide">
-                <div class="slide-content">
-                    <h2>-30% Discount</h2>
-                    <p>We know how large objects will act but things on a small scale.</p>
-                    <button>
-                        <a href="/products.html">Explore Products</a>
-                    </button>
-                </div>
-                <div class="imgSection">
-                    <img src="./assets/images/advertise.png" alt="Product 1">
-                </div>
-            </div>
-            <div class="slide">
-                <div class="slide-content">
-                    <h2>-30% Discount</h2>
-                    <p>We know how large objects will act but things on a small scale</p>
-                    <button>
-                        <a href="/products.html">Explore Products</a>
-                    </button>
-                </div>
-                <img src="./assets/images/advertise.png" alt="Product 2">
-            </div>
-            <div class="slide">
-                <div class="slide-content">
-                    <h2>-30% Discount</h2>
-                    <p>We know how large objects will act but things on a small scale</p>
-                    <button>
-                        <a href="/products.html">Explore Products</a>
-                    </button>
-                </div>
-                <img src="./assets/images/advertise.png" alt="Product 3">
-            </div>
+      <div class="slider-container">
+        <div class="slide">
+          <div class="slide-content">
+            <h2>-30% Discount</h2>
+            <p>
+              We know how large objects will act but things on a small scale.
+            </p>
+            <button>
+              <a href="/products.html">Explore Products</a>
+            </button>
+          </div>
+          <div class="imgSection">
+            <img src="./assets/images/advertise.png" alt="Product 1" />
+          </div>
         </div>
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
+        <div class="slide">
+          <div class="slide-content">
+            <h2>-30% Discount</h2>
+            <p>
+              We know how large objects will act but things on a small scale
+            </p>
+            <button>
+              <a href="/products.html">Explore Products</a>
+            </button>
+          </div>
+          <img src="./assets/images/advertise.png" alt="Product 2" />
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <h2>-30% Discount</h2>
+            <p>
+              We know how large objects will act but things on a small scale
+            </p>
+            <button>
+              <a href="/products.html">Explore Products</a>
+            </button>
+          </div>
+          <img src="./assets/images/advertise.png" alt="Product 3" />
+        </div>
+      </div>
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
 
     <!-- slider script -->
     <script src="./assets/js/slider.js"></script>
 
-    <h2 style="text-align: center;font-size: 30px;font-weight: 600; margin-top: 35px; color: rgb(22, 22, 92);">Shop
-        Product</h2>
+    <h2
+      style="
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 35px;
+        color: rgb(22, 22, 92);
+      "
+    >
+      Shop Product
+    </h2>
 
     <div id="products"></div>
-    <script>
-        // JavaScript to dynamically create and insert the cards
-        function createCard(product) {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.id = `productID-${product.id}`;
-            card.innerHTML = `
+    <script src="data/products.js" type="module"></script>
+    <script type="module">
+      import productsArray from "./data/products.js";
+
+      // JavaScript to dynamically create and insert the cards
+      function createCard(product) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.id = `productID-${product.id}`;
+        card.innerHTML = `
                 <img src="${product.image}" alt="EquipementImg" />
                 <div class="card-details">
                     <h5>${product.name}</h5>
@@ -146,160 +165,115 @@
                        
                     </div>
                     <div class="description">${product.description}</div>
-                    <div class="price">
+                       <div class="price">
                         <del>$${product.oldPrice}</del>
                         <strong>$${product.newPrice}</strong>
                     </div>
                     <div class="functionBtn">
                         <button class="view-btn" style="color:rgb(7, 7, 68);background:none; border:1px solid blue;">View</button>
-                        <button id="reserve-${product.id}" class="reserve">${product.reserve}</button>
+                        <button id="reserve-${product.id}" class="reserve">Reserve</button>
                     </div>
                 </div>
             `;
-            card.querySelector('.view-btn').addEventListener('click', () => viewProduct(product));
-            card.querySelector('img').addEventListener('click', () => viewProduct(product));
-            card.querySelector(`#reserve-${product.id}`).addEventListener('click', () => showReserveForm());
-            return card;
-        }
+        card
+          .querySelector(".view-btn")
+          .addEventListener("click", () => viewProduct(product));
+        card
+          .querySelector("img")
+          .addEventListener("click", () => viewProduct(product));
+        card
+          .querySelector(`#reserve-${product.id}`)
+          .addEventListener("click", () => showReserveForm());
+        return card;
+      }
+      // Get the search input element
+      const searchInput = document.getElementById("searchInput");
 
-        function viewProduct(product) {
-            localStorage.setItem('selectedProduct', JSON.stringify(product));
-            window.location.href = 'product.html';
-        }
+      // Add event listener for the change event
+      searchInput.addEventListener("change", () => filterProducts());
+      function viewProduct(product) {
+        localStorage.setItem("selectedProduct", JSON.stringify(product));
+        window.location.href = "product.html";
+      }
 
-        // Array of different image URLs
-        const productImages = [
-            'assets/images/img2.webp',
-            'assets/images/img3.webp',
-            'assets/images/img4.webp',
-            'assets/images/img5.webp',
-            'assets/images/img6.webp',
-            'assets/images/img1.webp',
-        ];
+      document.addEventListener("DOMContentLoaded", function () {
+        // Render initial set of products
+        let startIndex = 0;
+        let endIndex = Math.min(startIndex + 3, productsArray.length);
+        renderCards(productsArray.slice(startIndex, endIndex));
 
-        // Generate 6 dummy products with different images
-        const products = Array.from({ length: 9 }, (_, i) => ({
-            id: i + 1,
-            image: productImages[i % productImages.length],
-            name: `Product Name ${i + 1}`,
-            rating: (Math.random() * (5 - 4) + 4).toFixed(1),
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, iusto.',
-            oldPrice: (Math.random() * (20 - 10) + 10).toFixed(2),
-            newPrice: (Math.random() * (10 - 5) + 5).toFixed(2),
-            reserve: "reserve"
-        }));
+        const showMoreButton = document.getElementById("toggleButton");
 
-        // Function to render cards
-        function renderCards(startIndex, endIndex) {
-            const cardContainer = document.getElementById('products');
-            for (let i = startIndex; i < endIndex; i++) {
-                const product = products[i];
-                const cardElement = createCard(product);
-                cardContainer.appendChild(cardElement);
-            }
-        }
+        showMoreButton.addEventListener("click", function () {
+          // Increment startIndex and endIndex to show the next batch of 3 products
+          startIndex = endIndex;
+          endIndex = Math.min(startIndex + 3, productsArray.length);
 
-        // Wait for the DOM to fully load before running the script
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initial rendering of first 6 cards
-            renderCards(0, 3);
+          // Render the next batch of products
+          renderCards(productsArray.slice(0, endIndex));
 
-            const showMoreButton = document.getElementById('toggleButton');
-            let startIndex = 3;
-            let endIndex = Math.min(startIndex + 6, products.length);
-
-            showMoreButton.addEventListener('click', function () {
-                // Render next batch of cards
-                renderCards(startIndex, endIndex);
-
-                // Update indices for next batch
-                startIndex = endIndex;
-                endIndex = Math.min(startIndex + 6, products.length);
-
-                // Hide "Show More" button if no more products to show
-                if (startIndex >= products.length) {
-                    showMoreButton.style.display = 'none';
-                }
-            });
+          // Hide "Show More" button if no more products to show
+          if (startIndex >= productsArray.length) {
+            showMoreButton.style.display = "none";
+          }
         });
+      });
 
-        function showReserveForm() {
-            document.getElementById('reserveFormPopover').style.display = 'flex';
-        }
+      function renderCards(products) {
+        const cardContainer = document.getElementById("products");
+        cardContainer.innerHTML = ""; // Clear existing products
+        products.forEach((product) => {
+          const cardElement = createCard(product);
+          cardContainer.appendChild(cardElement);
+        });
+      }
 
-        function hideReserveForm() {
-            document.getElementById('reserveFormPopover').style.display = 'none';
-        }
+      function showReserveForm() {
+        document.getElementById("reserveFormPopover").style.display = "flex";
+      }
+
+      function hideReserveForm() {
+        document.getElementById("reserveFormPopover").style.display = "none";
+      }
+
+      function filterProducts() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const filteredProducts = productsArray.filter((product) =>
+          product.name.toLowerCase().includes(searchTerm)
+        );
+        renderCards(filteredProducts);
+      }
     </script>
 
     <!-- show more button -->
     <section class="handleBtn">
-        <button id="toggleButton">Show More</button>
+      <button id="toggleButton">Show More</button>
     </section>
 
     <!-- Reservation form -->
-    <div id="reserveFormPopover" class="popover" style="display: none;">
-        <h2>Reserve your Equipment</h2>
-        <form id="reserve-form" style="display: flex;">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5"></textarea>
-            <div class="formBtn">
-                <button type="button" id="cancel-button" style="background-color: white; color: black; border: 1px solid gray;">Cancel</button>
-                <button type="submit">Reserve</button>
-            </div>
-        </form>
+    <div id="reserveFormPopover" class="popover" style="display: none">
+      <h2>Reserve your Equipment</h2>
+      <form id="reserve-form" style="display: flex">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+        <div class="formBtn">
+          <button
+            type="button"
+            id="cancel-button"
+            style="background: #dde3e9"
+            onclick="hideReserveForm()"
+          >
+            Cancel
+          </button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
     </div>
-
-    <!-- Success Window -->
-    <div id="successMessage" class="success-window" style="display: none; background-color: white; color: black;">
-        <img src="/assets/images/success.png" alt="SuccessIcon" class="successIcon">
-        <p>Reservation Successful!</p>
-        <button class="close-button">Close</button>
-    </div>
-
-    <div class='footer'>
-        <section class="footer-text">
-            <h6>Get In Touch</h6>
-            <p class="para2">
-                The quick fox jump over the lazy dog
-            </p>
-        </section>
-    </div>
-
-    <script>
-        const successMessage = document.getElementById("successMessage");
-        const closeSuccessMessageButton = successMessage.querySelector(".close-button");
-        closeSuccessMessageButton.addEventListener("click", function () {
-            successMessage.style.display = "none";
-        });
-
-        document.getElementById('cancel-button').addEventListener('click', hideReserveForm);
-
-        document.getElementById('reserve-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.getElementById('reserveFormPopover').style.display = 'none';
-            successMessage.style.display = 'flex';
-        });
-    // Function to filter products by name
-    function filterProducts() {
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        const products = document.querySelectorAll('.card');
-        products.forEach(product => {
-            const productName = product.querySelector('h5').textContent.toLowerCase();
-            if (productName.includes(searchTerm)) {
-                product.classList.remove('hidden');
-            } else {
-                product.classList.add('hidden');
-            }
-        });
-    }
-</script>
-
-    </script>
-</body>
-
+  </body>
 </html>
