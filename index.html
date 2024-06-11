@@ -147,6 +147,12 @@
     <script src="data/products.js" type="module"></script>
     <script type="module">
       import productsArray from "./data/products.js";
+      const popupCancelBtn = document.getElementById("cancel-button");
+      const reserveForm = document.getElementById("reserve-form");
+      const reserveFormPopover = document.getElementById("reserveFormPopover");
+      const successMessage = document.getElementById("successMessage");
+
+      popupCancelBtn.addEventListener("click", () => hideReserveForm());
 
       // JavaScript to dynamically create and insert the cards
       function createCard(product) {
@@ -245,6 +251,25 @@
         );
         renderCards(filteredProducts);
       }
+      reserveForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission behavior
+
+        // Simulate form submission (replace this with actual submission logic)
+        setTimeout(function () {
+          // Hide the popover and show the success message
+          reserveFormPopover.style.display = "none";
+          successMessage.style.display = "block";
+
+          // Reset form fields if needed
+          reserveForm.reset();
+        }, 1000); // Change 1000 to the desired delay in milliseconds
+      });
+      const closeSuccessMessageButton =
+        successMessage.querySelector(".close-button");
+      closeSuccessMessageButton.addEventListener("click", function () {
+        console.log("Close button:", closeSuccessMessageButton);
+        successMessage.style.display = "none";
+      });
     </script>
 
     <!-- show more button -->
@@ -263,17 +288,32 @@
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="5"></textarea>
         <div class="formBtn">
-          <button
-            type="button"
-            id="cancel-button"
-            style="background: #dde3e9"
-            onclick="hideReserveForm()"
-          >
-            Cancel
-          </button>
+          <button type="button" id="cancel-button">Cancel</button>
           <button type="submit">Submit</button>
         </div>
       </form>
+    </div>
+
+    <!-- Success Window -->
+    <div
+      id="successMessage"
+      class="success-window"
+      style="display: none; background-color: white; color: black"
+    >
+      <img
+        src="/assets/images/success.png"
+        alt="SuccessIcon"
+        class="successIcon"
+      />
+      <p>Reservation Successful!</p>
+      <button class="close-button">Close</button>
+    </div>
+
+    <div class="footer">
+      <section class="footer-text">
+        <h6>Get In Touch</h6>
+        <p class="para2">The quick fox jump over the lazy dog</p>
+      </section>
     </div>
   </body>
 </html>

@@ -72,9 +72,7 @@
   <body>
     <nav class="navbar">
       <div class="navbar-left">
-        <h2>BrandName</h2>
-        <a href="/">Home</a>
-        <a href="./products.html">Products</a>
+        <i class="fa fa-arrow-left back cursor"></i>
       </div>
       <div class="navbar-right">
         <i class="fa fa-search"></i>
@@ -146,6 +144,17 @@
     <div id="products"></div>
     <script src="data/products.js" type="module"></script>
     <script type="module">
+      const backIcon = document.querySelector(".fa-arrow-left");
+      const popupCancelBtn = document.getElementById("cancel-button");
+      const reserveForm = document.getElementById("reserve-form");
+      const reserveFormPopover = document.getElementById("reserveFormPopover");
+      const successMessage = document.getElementById("successMessage");
+
+      popupCancelBtn.addEventListener("click", () => hideReserveForm());
+
+      backIcon.addEventListener("click", () => {
+        window.history.back();
+      });
       import productsArray from "./data/products.js";
 
       // JavaScript to dynamically create and insert the cards
@@ -197,26 +206,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Render initial set of products
-        let startIndex = 0;
-        let endIndex = Math.min(startIndex + 3, productsArray.length);
-        renderCards(productsArray.slice(startIndex, endIndex));
-
-        const showMoreButton = document.getElementById("toggleButton");
-
-        showMoreButton.addEventListener("click", function () {
-          // Increment startIndex and endIndex to show the next batch of 3 products
-          startIndex = endIndex;
-          endIndex = Math.min(startIndex + 3, productsArray.length);
-
-          // Render the next batch of products
-          renderCards(productsArray.slice(0, endIndex));
-
-          // Hide "Show More" button if no more products to show
-          if (startIndex >= productsArray.length) {
-            showMoreButton.style.display = "none";
-          }
-        });
+        renderCards(productsArray);
       });
 
       function renderCards(products) {
@@ -229,13 +219,25 @@
       }
 
       function showReserveForm() {
-        document.getElementById("reserveFormPopover").style.display = "flex";
+        document.getElementById("reserveFormPopover").style.display = "block";
       }
 
       function hideReserveForm() {
         document.getElementById("reserveFormPopover").style.display = "none";
       }
+      reserveForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission behavior
 
+        // Simulate form submission (replace this with actual submission logic)
+        setTimeout(function () {
+          // Hide the popover and show the success message
+          reserveFormPopover.style.display = "none";
+          successMessage.style.display = "block";
+
+          // Reset form fields if needed
+          reserveForm.reset();
+        }, 1000); // Change 1000 to the desired delay in milliseconds
+      });
       function filterProducts() {
         const searchTerm = document
           .getElementById("searchInput")
@@ -245,12 +247,13 @@
         );
         renderCards(filteredProducts);
       }
+      const closeSuccessMessageButton =
+        successMessage.querySelector(".close-button");
+      closeSuccessMessageButton.addEventListener("click", function () {
+        console.log("Close button:", closeSuccessMessageButton);
+        successMessage.style.display = "none";
+      });
     </script>
-
-    <!-- show more button -->
-    <section class="handleBtn">
-      <button id="toggleButton">Show More</button>
-    </section>
 
     <!-- Reservation form -->
     <div id="reserveFormPopover" class="popover" style="display: none">
@@ -263,17 +266,32 @@
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="5"></textarea>
         <div class="formBtn">
-          <button
-            type="button"
-            id="cancel-button"
-            style="background: #dde3e9"
-            onclick="hideReserveForm()"
-          >
-            Cancel
-          </button>
+          <button type="button" id="cancel-button">Cancel</button>
           <button type="submit">Submit</button>
         </div>
       </form>
+    </div>
+
+    <!-- Success Window -->
+    <div
+      id="successMessage"
+      class="success-window"
+      style="display: none; background-color: white; color: black"
+    >
+      <img
+        src="/assets/images/success.png"
+        alt="SuccessIcon"
+        class="successIcon"
+      />
+      <p>Reservation Successful!</p>
+      <button class="close-button">Close</button>
+    </div>
+
+    <div class="footer">
+      <section class="footer-text">
+        <h6>Get In Touch</h6>
+        <p class="para2">The quick fox jump over the lazy dog</p>
+      </section>
     </div>
   </body>
 </html>
