@@ -203,26 +203,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Render initial set of products
-        let startIndex = 0;
-        let endIndex = Math.min(startIndex + 3, productsArray.length);
-        renderCards(productsArray.slice(startIndex, endIndex));
-
-        const showMoreButton = document.getElementById("toggleButton");
-
-        showMoreButton.addEventListener("click", function () {
-          // Increment startIndex and endIndex to show the next batch of 3 products
-          startIndex = endIndex;
-          endIndex = Math.min(startIndex + 3, productsArray.length);
-
-          // Render the next batch of products
-          renderCards(productsArray.slice(0, endIndex));
-
-          // Hide "Show More" button if no more products to show
-          if (startIndex >= productsArray.length) {
-            showMoreButton.style.display = "none";
-          }
-        });
+        renderCards(productsArray);
       });
 
       function renderCards(products) {
@@ -271,11 +252,6 @@
         successMessage.style.display = "none";
       });
     </script>
-
-    <!-- show more button -->
-    <section class="handleBtn">
-      <button id="toggleButton">Show More</button>
-    </section>
 
     <!-- Reservation form -->
     <div id="reserveFormPopover" class="popover" style="display: none">
